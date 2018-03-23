@@ -52,12 +52,6 @@ WM_COMPILE_OPTION = Opt
 GENERAL_RULES   = $(WM_DIR)/rules/General
 include $(GENERAL_RULES)/general
 
-cc = gcc -m64
-cWARN = -Wall
-cFLAGS = $(GFLAGS) $(cWARN) $(cOPT) $(cDBUG) $(LIB_HEADER_DIRS) -g -fPIC
-CC = g++ -m64
-c++WARN = -Wall
-c++FLAGS = $(GFLAGS) $(c++WARN) $(cOPT) $(cDBUG) $(LIB_HEADER_DIRS) -g -fPIC
 
 #------------------------------------------------------------------------------
 # Targets
