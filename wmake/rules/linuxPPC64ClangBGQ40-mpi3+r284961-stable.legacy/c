@@ -1,0 +1,20 @@
+SUFFIXES += .c
+current = r284961-stable
+ZLIB_HOME = $(WM_THIRD_PARTY_DIR)/zlib-1.2.8/ClangBGQ40-$(current)
+
+cWARN        = -Wall
+
+cc          = /soft/compilers/bgclang/mpi/bgclang-mpi3.legacy.ndebug/bin/mpiclang -g -O3 -fPIC -funroll-loops -fno-strict-aliasing -m64 -I$(ZLIB_HOME)/include
+
+#cc          = gcc -m64 -mcpu=power5+
+
+include $(RULES)/c$(WM_COMPILE_OPTION)
+
+cFLAGS      = $(GFLAGS) $(cWARN) $(cOPT) $(cDBUG) $(LIB_HEADER_DIRS) -fPIC -g
+
+ctoo        = $(WM_SCHEDULER) $(cc) $(cFLAGS) -c $< -o $@
+
+LINK_LIBS   = $(cDBUG)
+
+LINKLIBSO   = $(cc) -shared -L$(ZLIB_HOME)/lib -lz
+LINKEXE     = $(cc) -Xlinker --add-needed -Xlinker -z -Xlinker nodefs
