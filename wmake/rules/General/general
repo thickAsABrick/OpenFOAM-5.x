@@ -14,6 +14,7 @@ GLIB_LIBS  =
 
 
 #COMPILER_TYPE   = $(shell echo $(WM_COMPILER) | tr -d [:digit:])
+#..The Meshugah goes hack hack hack; changed the above line to the one below
 COMPILER_TYPE   = $(shell echo $(WM_COMPILER))
 DEFAULT_RULES   = $(WM_DIR)/rules/$(WM_ARCH)$(COMPILER_TYPE)
 RULES           = $(WM_DIR)/rules/$(WM_ARCH)$(WM_COMPILER)
