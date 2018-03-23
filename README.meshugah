@@ -1,0 +1,6 @@
+Created by: Ramesh "Meshugah" Balakrishnan
+Created on: March 20, 2018
+Created at: Argonne National Laboratory
+
+Legend: the purpose of this meshugah "branch" in the thickAsABrick/OpenFOAM-5.x "fork" is to try out (and create) some 
+        crazy parallel performance enhanced stuff for LES of high-Re (did I say crazy) simulations.
