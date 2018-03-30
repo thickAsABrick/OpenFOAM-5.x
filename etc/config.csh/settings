@@ -71,7 +71,8 @@ case Linux:
             setenv WM_CXX 'g++'
             setenv WM_CFLAGS '-m64 -fPIC'
             setenv WM_CXXFLAGS '-m64 -fPIC -std=c++0x'
-            setenv WM_LDFLAGS '-m64'
+#            setenv WM_LDFLAGS '-m64'  #.. we do nto need this on Theta with the Intel compilers
+            setenv WM_LDFLAGS
             breaksw
 
         default:
