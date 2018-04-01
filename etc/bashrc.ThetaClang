@@ -31,16 +31,18 @@
 #
 #------------------------------------------------------------------------------
 
+#..NOTE: DO NOT USE THE CLANG BUILD
+
 #..From The Meshugah Hacks
 #..(if you would like to roll your own, please get the source from:
 #.. https://github.com/thickAsABrick/OpenFOAM-5.x/tree/meshugah)
 
 #..NOTE: on Theta, we need to make sure we have the correct module(s) loaded
 module use /soft/modulefiles
-#..NOTE: intel/18.0.0.128 reports internal-compiler errors
-#..      hence we need to swithout from the "default" version 18.x
-#..      Intel compiler to an older version 17.x compiler.
-module swap intel/18.0.0.128 intel/17.0.4.196 
+#..if you wish to build with Clang/LLVM, do the following
+#module swap PrgEnv-intel PrgEnv-llvm (do not use. default Clang-5.0 does not work)
+#..instead, roll back to a previous version of Clang.
+module swap PrgEnv-intel PrgEnv-llvm/4.0
 
 export OPENFOAM_HOME=/home/projects/
 export WM_PROJECT=OpenFOAM
@@ -74,7 +76,7 @@ export WM_COMPILER_TYPE=system
 
 #- Compiler:
 #    WM_COMPILER = Gcc | Gcc48 ... Gcc62 | Clang | Icc
-export WM_COMPILER=ThetaIcc
+export WM_COMPILER=ThetaClang
 unset WM_COMPILER_ARCH WM_COMPILER_LIB_ARCH
 
 #- Memory addressing:
